@@ -1,0 +1,27 @@
+section
+	h2 Classes
+	h3 Private variables
+
+	pre.
+		class Person {
+			private FirstName: string;
+			private LastName: string;
+
+			constructor(firstName: string, lastName: string) {
+				this.FirstName = firstName;
+				this.LastName = lastName;
+			}
+
+			getFullName() {
+				return this.FirstName + ' ' + this.LastName;
+			}
+		}
+
+		var person = new Person('Tom', 'Smith');
+
+		// OK
+		console.log(person.getFullName());
+
+		// ERROR!!
+		console.log(person.FirstName);	
+		

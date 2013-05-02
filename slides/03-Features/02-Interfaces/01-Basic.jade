@@ -1,0 +1,25 @@
+section
+	h2 Interfaces
+	h3 Simple example
+
+	pre.
+		interface IPerson {
+			FirstName: string;
+			LastName: string;
+
+			getFullName: () => string;
+		}
+
+		class Person implements IPerson {
+			FirstName: string;
+			LastName: string;
+
+			constructor(firstName: string, lastName: string) {
+				this.FirstName = firstName;
+				this.LastName = lastName;
+			}
+
+			getFullName() {
+				return this.FirstName + ' ' + this.LastName;
+			}
+		}

@@ -1,0 +1,24 @@
+section
+	h2 Classes
+	h3 Simple example
+
+	pre.
+		class Person {
+			FirstName: string;
+			LastName: string;
+
+			constructor(firstName: string, lastName: string) {
+				this.FirstName = firstName;
+				this.LastName = lastName;
+			}
+
+			getFullName() {
+				return this.FirstName + ' ' + this.LastName;
+			}
+		}
+		
+		...
+
+		var person = new Person('Tom', 'Smith');
+
+		console.log(person.getFullName()); // 'Tom Smith'

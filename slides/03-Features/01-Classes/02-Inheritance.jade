@@ -1,0 +1,26 @@
+section
+	h2 Classes
+	h3 Inheritance
+
+	div
+		pre.
+			class Employee extends Person {
+				Title: string;
+
+				constructor(first: string, last: string, title: string) {
+					super(first, last);
+
+					this.Title = title;
+				}
+
+				getFullName() {
+					return super.getFullName() + ', ' + this.Title;
+				}
+			}
+			
+			...
+
+			var employee = new Employee('Tom', 'Smith', 'VP of Engineering');
+
+			// 'Tom Smith, VP of Engineering'
+			console.log(employee.getFullName());

@@ -1,0 +1,19 @@
+section
+	h2 Classes
+	h3 Static variables
+
+	pre.
+		class Logger {
+			static Instance = new Log();
+
+			constructor() {
+				
+			}
+
+			write(message: string) {
+				console.log(message);
+			}
+		}
+
+		// Sample usage
+		Logger.Instance.write('Hello, world!');
