@@ -194,6 +194,51 @@ class Person implements IPerson {
  }
 }</pre>
           </section>
+          <section>
+            <h2>Interfaces</h2>
+            <h3>3rd Party Libraries</h3>
+            <pre>declare var $: (selector: string) => any;
+
+interface JQuerySpin {
+ spin: () => void;
+}
+
+(&lt;JQuerySpin&gt;$('#spinner')).spin();</pre>
+          </section>
+          <section>
+            <h2>Interfaces</h2>
+            <h3>3rd Party Libraries</h3><br>
+            <div class="strong underline">A brief note on 3rd party interfaces</div><br>
+            <div>Interface definitions files end in .d.ts, meaning it is only used by the compiler (no compiled output).</div><br>
+            <div>DefinitelyTyped is a project on GitHub that provides interface definitions for common libraries.</div>
+            <div><a href="https://github.com/borisyankov/DefinitelyTyped‎">https://github.com/borisyankov/DefinitelyTyped‎</a></div>
+          </section>
+          <section>
+            <h2>Type Annotations</h2>
+            <h3>Basic Supported Types</h3>
+            <ul>
+              <li>number</li>
+              <li>string</li>
+              <li>Function</li>
+              <li>Custom Types (classes, interfaces, etc.)</li>
+              <li>Special type: any</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Type Annotations</h2>
+            <h3>Basic Supported Types</h3><strong class="small text-left">Variables</strong>
+            <pre>var x: string = 'Hello, world!';
+</pre><strong class="small text-left">Function arguments, return values</strong>
+            <pre>function sum(x: number, y: number): number {
+ return x + y;
+}
+</pre><strong class="small text-left">Function types</strong>
+            <pre>var sum: (x: number, y: number) => number;
+
+sum = function (x, y) {
+ return x + y;
+}</pre>
+          </section>
         </section>
       </div>
     </div>

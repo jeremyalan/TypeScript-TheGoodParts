@@ -1,0 +1,12 @@
+section
+	h2 Interfaces
+	h3 3rd Party Libraries
+
+	pre.
+		declare var $: (selector: string) => any;
+
+		interface JQuerySpin {
+			spin: () => void;
+		}
+
+		(&lt;JQuerySpin&gt;$('#spinner')).spin();

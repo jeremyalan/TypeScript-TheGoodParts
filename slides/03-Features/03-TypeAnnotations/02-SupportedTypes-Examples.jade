@@ -1,0 +1,21 @@
+section
+	h2 Type Annotations
+	h3 Basic Supported Types
+
+	strong.small.text-left Variables
+	pre.
+		var x: string = 'Hello, world!';
+
+	strong.small.text-left Function arguments, return values
+	pre.
+		function sum(x: number, y: number): number {
+			return x + y;
+		}
+
+	strong.small.text-left Function types
+	pre.
+		var sum: (x: number, y: number) => number;
+
+		sum = function (x, y) {
+			return x + y;
+		}

@@ -13,3 +13,7 @@
 .underline {
   text-decoration: underline;
 }
+.text-left {
+  display: block;
+  text-align: left;
+}
