@@ -1,7 +1,7 @@
-TypeScript-TheGoodParts
+TypeScript: The Good Parts
 =======================
 
-Contains a web-based presentation about the features of TypeScript
+Contains a web-based presentation about the features of TypeScript.
 
 * Overview
   * What is TypeScript
