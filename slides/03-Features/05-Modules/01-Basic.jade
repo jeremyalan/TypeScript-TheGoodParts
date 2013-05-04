@@ -1,0 +1,23 @@
+section
+	h2 Modules
+	h3 Simple example
+
+	pre.
+		module App.Views {
+			export class MainView {
+				private model: any;
+
+				constructor(model) {
+					this.model = model;
+				}
+
+				render() {
+					...
+				}
+			}
+		}
+
+		var model = {};
+		var view = App.Views.MainView(model);
+
+		view.render();

@@ -1,0 +1,22 @@
+section
+	h2 Functions
+	h3 Inline functions
+
+	div Inline functions will inherit 'this' context.
+
+	pre.
+		class Model {
+			person: Person;
+
+			theHardWay() {
+				var that = this;
+
+				$.ajax(...).done(function (data) {
+					that.person = data;
+				}
+			}
+
+			theEasyWay() {
+				$.ajax(...).done(data => this.person = data);
+			}
+		}

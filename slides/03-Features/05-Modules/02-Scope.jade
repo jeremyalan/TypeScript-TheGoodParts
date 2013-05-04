@@ -1,0 +1,20 @@
+section
+	h2 Modules
+	h3 Public and Private Scope
+	
+	pre.
+		module App.Views {
+			class PrivateView {
+			...
+			}
+
+			export class PublicView {
+			...
+			}
+		}
+
+		// OK
+		var public = new App.Views.PublicView();
+
+		// Error!
+		var private = new App.Views.PrivateView();

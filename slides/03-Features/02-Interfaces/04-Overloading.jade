@@ -1,0 +1,29 @@
+section
+	h2 Interfaces
+	h3 Method overloading
+
+	div Supported by interfaces, not by classes
+	.small
+		pre.
+			interface Greeter {
+				sayHello(): void;
+				sayHello(name: string): void;
+			}
+
+			class ConsoleGreeter implements Greeter {
+				sayHello(name) {
+					if (name) {
+						console.log('Hello, ' + name + '!');
+					}
+					else {
+						console.log('Hey you!');
+					}
+
+					
+				}
+			}
+
+			var greeter = new ConsoleGreeter();
+
+			greeter.sayHello();      // Hey you!
+			greeter.sayHello('Tom'); // Hello, Tom!

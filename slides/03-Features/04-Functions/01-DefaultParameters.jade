@@ -1,0 +1,24 @@
+section
+	h2 Functions
+	h3 Default parameters
+
+	pre.
+		class Person {
+			Name: string;
+			Title: string;
+
+			constructor(name: string, title: string = 'Mr.') {
+				this.Name = name;
+				this.Title = title;
+			}
+
+			getFullName() {
+				return this.Title + ' ' + this.Name;
+			}
+		}
+
+		var person1 = new Person('Tom Smith');
+		var person2 = new Person('Susie Johnson', 'Ms.');
+
+		console.log(person1.getFullName()); // 'Mr. Tom Smith'
+		console.log(person2.getFullName()); // 'Ms. Susie Johnson'

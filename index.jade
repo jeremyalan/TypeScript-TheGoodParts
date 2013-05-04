@@ -5,8 +5,9 @@ html(lang='en')
         .reveal
             .slides
                 section
-                    include slides/01-Welcome/01-Welcome.jade
-                    include slides/01-Welcome/02-Sponsors.jade
+                    include slides/01-Welcome/01-Welcome
+                    include slides/01-Welcome/02-Sponsors
+                    include slides/01-Welcome/03-Audience
                 section
                     include slides/02-Overview/01-WhatIsTypeScript-Pt1
                     include slides/02-Overview/02-WhatIsTypeScript-Pt2
@@ -15,15 +16,41 @@ html(lang='en')
                     include slides/02-Overview/05-WhatIsntTypeScript-Pt3
                 section
                     include slides/03-Features/01-Classes/01-Basic
-                    include slides/03-Features/01-Classes/02-Inheritance
-                    include slides/03-Features/01-Classes/03-StaticVars
-                    include slides/03-Features/01-Classes/04-PrivateVars
-                    include slides/03-Features/01-Classes/05-PrivateVars-Note
+                    include slides/03-Features/01-Classes/02-PrivateVars
+                    include slides/03-Features/01-Classes/03-PrivateVars-Note
+                    include slides/03-Features/01-Classes/04-StaticVars
+                    include slides/03-Features/01-Classes/05-Inheritance
                     
+                section
                     include slides/03-Features/02-Interfaces/01-Basic
                     include slides/03-Features/02-Interfaces/02-3rdPartyLibraries
                     include slides/03-Features/02-Interfaces/03-3rdPartyLibraries-Note
+                    include slides/03-Features/02-Interfaces/04-Overloading
                     
-                    include slides/03-Features/03-TypeAnnotations/01-SupportedTypes
-                    include slides/03-Features/03-TypeAnnotations/02-SupportedTypes-Examples
+                section
+                    include slides/03-Features/03-TypeAnnotations/01-BasicTypes
+                    include slides/03-Features/03-TypeAnnotations/02-BasicTypes-Examples
+                    include slides/03-Features/03-TypeAnnotations/03-LookupTypes
+
+                section
+                    include slides/03-Features/04-Functions/01-DefaultParameters
+                    include slides/03-Features/04-Functions/02-Splats
+                    include slides/03-Features/04-Functions/03-InlineFunctions
+                    include slides/03-Features/04-Functions/04-InlineFunctions-Context
+
+                section
+                    include slides/03-Features/05-Modules/01-Basic
+                    include slides/03-Features/05-Modules/02-Scope
+                    include slides/03-Features/05-Modules/03-References
+                    
+                section
+                    include slides/04-Tools/01-WebPlayground
+                    include slides/04-Tools/02-CommandLine
+                    include slides/04-Tools/03-Plugins
+
+                section
+                    include slides/05-Other/01-SourceMaps
+                    include slides/05-Other/02-FinalThoughts
+                    include slides/05-Other/03-Questions
+
         include footer

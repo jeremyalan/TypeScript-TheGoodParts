@@ -1,0 +1,18 @@
+section
+	h2 Type Annotations
+	h3 Lookup Types
+
+	div TypeScript supports key/value maps
+	br
+	pre.
+		interface Person {
+			Name: string;
+		}
+
+		var personsById: {
+			[id: string]: Person;
+		}
+
+		var person = personsById['user'];
+
+		console.log(person.Name);

@@ -1,0 +1,23 @@
+section
+	h2 Type Annotations
+	h3 Lookup Types
+
+	div TypeScript supports JSON types
+	br
+	pre.
+		class Person {
+			Name: string;
+
+			constructor() {
+			}
+
+			constructor(name: string) {
+				this.Name = name;
+			}
+		}
+
+		var person1 = new Person('Tom Smith');
+
+		var person2: Person = {
+			Name: 'Susie Jones'
+		};

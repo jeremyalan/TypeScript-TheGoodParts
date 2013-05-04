@@ -26,13 +26,20 @@
           <section>
             <h1>TypeScript</h1>
             <h2>The Good Parts</h2>
-            <p>presented by</p>
-            <p>Jeremy Mason</p><br>
-            <p>jeremyalan@gmail.com</p>
-            <p>@jeremyalan</p>
+            <p>by Jeremy Mason</p><br>
+            <div class="break">
+              <h3>Download the slides</h3><a href="https://github.com/jeremyalan/TypeScript-TheGoodParts">https://github.com/jeremyalan/TypeScript-TheGoodParts</a>
+            </div>
+            <div class="break">
+              <h3>Contact me</h3>
+              <div><span>@jeremyalan</span><br><span>jeremyalan@gmail.com</span></div>
+            </div>
           </section>
           <section>
             <h2>Sponsors</h2><img src="slides/images/sponsors.png" height="60%">
+          </section>
+          <section>
+            <h1>Quick Poll</h1>
           </section>
         </section>
         <section>
@@ -57,9 +64,8 @@
           <section>
             <h2>What isn't TypeScript</h2>
             <h3>C++ | C# | Java</h3>
-            <p>Transcompiling to Javascript from existing languages is often difficult because they were designed with a different design principles</p>
+            <p>Transcompiling to Javascript from existing languages is difficult because they have different design principles</p>
             <p class="break">TypeScript is a whole new language designed to harness the implicit power of Javascript</p>
-            <p class="small"><span>Requires some extra effort to support type safety</span><br><span>Cast to &lt;any&gt; to remove type checking</span></p>
           </section>
           <section>
             <h2>What isn't TypeScript</h2>
@@ -99,48 +105,6 @@ console.log(person.getFullName()); // 'Tom Smith'</pre>
           </section>
           <section>
             <h2>Classes</h2>
-            <h3>Inheritance</h3>
-            <div>
-              <pre>class Employee extends Person {
- Title: string;
- 
- constructor(first: string, last: string, title: string) {
-  super(first, last);
-  
-  this.Title = title;
- }
- 
- getFullName() {
-  return super.getFullName() + ', ' + this.Title;
- }
-}
-...
-
-var employee = new Employee('Tom', 'Smith', 'VP of Engineering');
-
-// 'Tom Smith, VP of Engineering'
-console.log(employee.getFullName());</pre>
-            </div>
-          </section>
-          <section>
-            <h2>Classes</h2>
-            <h3>Static variables</h3>
-            <pre>class Logger {
- static Instance = new Log();
- 
- constructor() {
- }
- 
- write(message: string) {
-  console.log(message);
- }
-}
-
-// Sample usage
-Logger.Instance.write('Hello, world!');</pre>
-          </section>
-          <section>
-            <h2>Classes</h2>
             <h3>Private variables</h3>
             <pre>class Person {
  private FirstName: string;
@@ -170,6 +134,50 @@ console.log(person.FirstName);	</pre>
             <div class="strong underline">A brief note on using private</div><br>
             <div>Javascript does not understand public/private.  Private scope is only enforced by the TypeScript compiler</div>
           </section>
+          <section>
+            <h2>Classes</h2>
+            <h3>Static variables</h3>
+            <pre>class Logger {
+ static Instance = new Logger();
+ 
+ constructor() {
+ }
+ 
+ write(message: string) {
+  console.log(message);
+ }
+}
+
+// Sample usage
+Logger.Instance.write('Hello, world!');</pre>
+          </section>
+          <section>
+            <h2>Classes</h2>
+            <h3>Inheritance</h3>
+            <div>
+              <pre>class Employee extends Person {
+ Title: string;
+ 
+ constructor(first: string, last: string, title: string) {
+  super(first, last);
+  
+  this.Title = title;
+ }
+ 
+ getFullName() {
+  return super.getFullName() + ', ' + this.Title;
+ }
+}
+...
+
+var employee = new Employee('Tom', 'Smith', 'VP of Engineering');
+
+// 'Tom Smith, VP of Engineering'
+console.log(employee.getFullName());</pre>
+            </div>
+          </section>
+        </section>
+        <section>
           <section>
             <h2>Interfaces</h2>
             <h3>Simple example</h3>
@@ -214,8 +222,38 @@ interface JQuerySpin {
             <div><a href="https://github.com/borisyankov/DefinitelyTyped‎">https://github.com/borisyankov/DefinitelyTyped‎</a></div>
           </section>
           <section>
+            <h2>Interfaces</h2>
+            <h3>Method overloading</h3>
+            <div>Supported by interfaces, not by classes</div>
+            <div class="small">
+              <pre>interface Greeter {
+ sayHello(): void;
+ sayHello(name: string): void;
+}
+
+class ConsoleGreeter implements Greeter {
+ sayHello(name) {
+  if (name) {
+   console.log('Hello, ' + name + '!');
+  }
+  else {
+   console.log('Hey you!');
+  }
+  
+ }
+}
+
+var greeter = new ConsoleGreeter();
+
+greeter.sayHello();      // Hey you!
+greeter.sayHello('Tom'); // Hello, Tom!</pre>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
             <h2>Type Annotations</h2>
-            <h3>Basic Supported Types</h3>
+            <h3>Basic Types</h3>
             <ul>
               <li>number</li>
               <li>string</li>
@@ -226,7 +264,7 @@ interface JQuerySpin {
           </section>
           <section>
             <h2>Type Annotations</h2>
-            <h3>Basic Supported Types</h3><strong class="small text-left">Variables</strong>
+            <h3>Basic Types</h3><strong class="small text-left">Variables</strong>
             <pre>var x: string = 'Hello, world!';
 </pre><strong class="small text-left">Function arguments, return values</strong>
             <pre>function sum(x: number, y: number): number {
@@ -238,6 +276,263 @@ interface JQuerySpin {
 sum = function (x, y) {
  return x + y;
 }</pre>
+          </section>
+          <section>
+            <h2>Type Annotations</h2>
+            <h3>Lookup Types</h3>
+            <div>TypeScript supports key/value maps</div><br>
+            <pre>interface Person {
+ Name: string;
+}
+
+var personsById: {
+ [id: string]: Person;
+}
+
+var person = personsById['user'];
+
+console.log(person.Name);</pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Functions</h2>
+            <h3>Default parameters</h3>
+            <pre>class Person {
+ Name: string;
+ Title: string;
+ 
+ constructor(name: string, title: string = 'Mr.') {
+  this.Name = name;
+  this.Title = title;
+ }
+ 
+ getFullName() {
+  return this.Title + ' ' + this.Name;
+ }
+}
+
+var person1 = new Person('Tom Smith');
+var person2 = new Person('Susie Johnson', 'Ms.');
+
+console.log(person1.getFullName()); // 'Mr. Tom Smith'
+console.log(person2.getFullName()); // 'Ms. Susie Johnson'</pre>
+          </section>
+          <section>
+            <h2>Functions</h2>
+            <h3>Splats</h3>
+            <pre>function format(fmt: string, ...args: any[]) {
+ var result = fmt;
+ 
+ for (var i = 0; i < args.length; i++) {
+  result = result.replace('{' + i + '}', args[i]);
+ }
+ 
+ return result;
+}
+
+// Hello, Susie and Jim
+console.log(format('Hello, {0} and {1}!', 'Susie', 'Jim'));</pre>
+          </section>
+          <section>
+            <h2>Functions</h2>
+            <h3>Inline Functions</h3>
+            <div>(also called Lambda expressions)</div>
+            <pre>var items = [
+ { Name: 'Susie', Age: 27 },
+ { Name: 'Jim', Age: 34 }
+];
+
+var result = _.find(items, a => a.Name == 'Jim');
+
+// Multiple parameters
+var sum = (a, b) => a + b;
+
+// Multi-line
+var abs = (a) => {
+ if (a &lt; 0) {
+  return -a;
+ }
+ 
+ return a;
+}</pre>
+          </section>
+          <section>
+            <h2>Functions</h2>
+            <h3>Inline functions</h3>
+            <div>Inline functions will inherit 'this' context.</div>
+            <pre>class Model {
+ person: Person;
+ 
+ theHardWay() {
+  var that = this;
+  
+  $.ajax(...).done(function (data) {
+   that.person = data;
+  }
+ }
+ 
+ theEasyWay() {
+  $.ajax(...).done(data => this.person = data);
+ }
+}</pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Modules</h2>
+            <h3>Simple example</h3>
+            <pre>module App.Views {
+ export class MainView {
+  private model: any;
+  
+  constructor(model) {
+   this.model = model;
+  }
+  
+  render() {
+   ...
+  }
+ }
+}
+
+var model = {};
+var view = App.Views.MainView(model);
+
+view.render();</pre>
+          </section>
+          <section>
+            <h2>Modules</h2>
+            <h3>Public and Private Scope</h3>
+            <pre>module App.Views {
+ class PrivateView {
+ ...
+ }
+ 
+ export class PublicView {
+ ...
+ }
+}
+
+// OK
+var public = new App.Views.PublicView();
+
+// Error!
+var private = new App.Views.PrivateView();</pre>
+          </section>
+          <section>
+            <h2>Modules</h2>
+            <h3>External References</h3>
+            <pre>/// &lt;reference path="../../lib/jquery.d.ts" /&gt;
+
+module App.Models {
+ export class MainModel {
+  data: any;
+  
+  init() {
+  
+   // $ is defined in jquery.d.ts
+   
+   $.ajax(...).done(data => this.data = data);
+   
+  }
+ }
+}</pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Tools</h2>
+            <h3>Web Playground</h3>
+            <div> <a href="http://www.typescriptlang.org/Playground">http://www.typescriptlang.org/Playground</a></div>
+            <div class="break">
+              <ul>
+                <li>Great for getting started</li>
+                <li>View compiler errors</li>
+                <li>Basic Intellisense support</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h2>Tools</h2>
+            <h3>Command-Line Compiler</h3>
+            <div class="small break">
+              <ul>
+                <li>Available via NPM
+                  <pre>> npm install -g typescript</pre>
+                </li>
+                <li>Compile
+                  <pre>> tsc app.ts</pre>
+                </li>
+                <li>File watcher also available
+                  <pre>> tsc -w</pre>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h2>Tools</h2>
+            <h3>Other Plugins</h3>
+            <ul>
+              <li>Visual Studio 2012
+                <ul>
+                  <li>TypeScript for VS2012</li>
+                  <li>Web Essentials (VS2012)</li>
+                </ul>
+              </li>
+              <li>WebMatrix</li>
+              <li>Sublime Text</li>
+              <li>Emacs</li>
+              <li>Vim</li>
+              <li>WebStorm (coming soon?)</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Other Stuff</h2>
+            <h3>Source Maps</h3>
+            <div> <span>Allows you to debug TypeScript in</span><br><span>the browser using </span><span class="underline">original source</span></div>
+            <div class="break">
+              <ul>
+                <li>Available via command-line
+                  <pre>> tsc --sourcemap app.ts</pre>
+                </li>
+                <li>Browser support is limited, standard is emerging quickly</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h2>The Not So Good Parts</h2>
+            <ul>
+              <li>Tools and plugins are still clumsy</li>
+              <li>Lacks support for generics</li>
+              <li>Type annotations require more code</li>
+              <li>3rd party integration is painful
+                <ul>
+                  <li>DefinitelyTyped is great for common libraries!</li>
+                  <li>Cast to &lt;any&gt; to go "unsafe"</li>
+                  <li>Code generation?</li>
+                </ul>
+              </li>
+              <li>Dynamic bindings, client templates are not strongly typed
+                <ul>
+                  <li>AngularJS, Knockout</li>
+                  <li>Mustache, Handlebars, Underscore</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h1>Questions</h1><br>
+            <div>Thanks for listening!</div><br>
+            <div class="break">
+              <h3>Download the slides</h3><a href="https://github.com/jeremyalan/TypeScript-TheGoodParts">https://github.com/jeremyalan/TypeScript-TheGoodParts</a>
+            </div>
+            <div class="break">
+              <h3>Contact me</h3>
+              <div><span>@jeremyalan</span><br><span>jeremyalan@gmail.com</span></div>
+            </div>
           </section>
         </section>
       </div>
@@ -254,14 +549,14 @@ sum = function (x, y) {
           center: true,
           
           theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-          transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
           
           width: 960,
           height: 700,
           
           maxScale: 5.0,
           
-          rollingLinks: false,
+          rollingLinks: true,
           
           // Optional libraries used to extend on reveal.js
           dependencies: [

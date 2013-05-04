@@ -13,7 +13,16 @@
 .underline {
   text-decoration: underline;
 }
+.text-center {
+  text-align: center;
+}
 .text-left {
   display: block;
   text-align: left;
+}
+li.pre {
+  line-height: 1.2em !important;
+}
+li {
+  line-height: 1.5em !important;
 }

@@ -1,0 +1,17 @@
+section
+	h2 Functions
+	h3 Splats
+
+	pre.
+		function format(fmt: string, ...args: any[]) {
+			var result = fmt;
+
+			for (var i = 0; i < args.length; i++) {
+				result = result.replace('{' + i + '}', args[i]);
+			}
+
+			return result;
+		}
+
+		// Hello, Susie and Jim
+		console.log(format('Hello, {0} and {1}!', 'Susie', 'Jim'));

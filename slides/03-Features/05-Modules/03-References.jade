@@ -1,0 +1,20 @@
+section
+	h2 Modules
+	h3 External References
+	
+	pre.
+		/// &lt;reference path="../../lib/jquery.d.ts" /&gt;
+
+		module App.Models {
+			export class MainModel {
+				data: any;
+
+				init() {
+
+					// $ is defined in jquery.d.ts
+
+					$.ajax(...).done(data => this.data = data);
+
+				}
+			}
+		}
