@@ -3,7 +3,7 @@ TypeScript: The Good Parts
 
 Contains a web-based presentation about the features of TypeScript.
 
-To view the slides online, go to <a href="http://jeremyalan.github.io/TypeScript-TheGoodParts">http://jeremyalan.github.io/TypeScript-TheGoodParts</a>
+To view the slides online, go to <a href="http://jeremyalan.github.io/TypeScript-TheGoodParts" target="_blank">http://jeremyalan.github.io/TypeScript-TheGoodParts</a>
 
 * Overview
   * What is TypeScript
