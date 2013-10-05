@@ -1,0 +1,28 @@
+.small {
+  font-size: 0.75em !important;
+}
+.small a {
+  font-size: 1em !important;
+}
+.break {
+  margin-top: 1em !important;
+}
+.strong {
+  font-weight: bold;
+}
+.underline {
+  text-decoration: underline;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  display: block;
+  text-align: left;
+}
+li.pre {
+  line-height: 1.2em !important;
+}
+li {
+  line-height: 1.5em !important;
+}
